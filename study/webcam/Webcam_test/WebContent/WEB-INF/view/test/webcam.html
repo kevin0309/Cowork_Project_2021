@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	(function() {
+		if (!hasGetUserMedia()) {
+			alert('getUserMedia not found');
+			return;
+		}
+		
+		navigator.getUserMedia({video: true, audio: true}, function(localMediaStream) {
+			var video = document.querySelector('video');
+			video.srcObject = localMediaStream;
+			//video.src = window.URL.createObjectURL(localMediaStream);
+			
+			console.log(localMediaStream)
+			
+			video.onloadedmetadata = function(e) {
+				console.log(e);
+			}
+		}, function (e) {alert('rejected!')})
+	})();
+
+	function hasGetUserMedia() {
+		return !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
+				navigator.mozGetUserMedia || navigator.msGetUserMedia);
+	}
+</script>
+</head>
+<body>
+
+	<video autoplay controls="controls" muted="muted"></video>	
+
+</body>
+</html>
