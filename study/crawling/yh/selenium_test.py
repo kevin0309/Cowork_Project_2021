@@ -27,4 +27,7 @@ wd.get('https://www.youtube.com/')
 
 wd.implicitly_wait(3)
 
-pprint(wd.page_source)
+# 렌더링 완료된 페이지에서 해당 js 코드를 실행시켜 렌더링 완료된 html 소스 가져오기
+html = wd.execute_script("return document.documentElement.outerHTML")
+
+pprint(html)
