@@ -14,7 +14,7 @@ html = requests.get(url)
 # + 교보문고는 정적웹페이지로 구성되어있음
 soup = BeautifulSoup(html.content, 'html.parser')
 
-pprint(soup.prettify())
+#pprint(soup.prettify())
 
-#for link in soup.find_all('a') :
-#    pprint(link.get('href'))
+for link in soup.find_all('a') :
+    pprint(link.get('href'))
