@@ -9,6 +9,8 @@
 
 from selenium import webdriver
 
+from pprint import pprint
+
 # 브라우저용 webdriver 로딩
 
 # 에러 로그 발생 ==> USB: usb_device_handle_win.cc:1020 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
@@ -25,4 +27,4 @@ wd.get('https://www.youtube.com/')
 
 wd.implicitly_wait(3)
 
-print(wd.page_source)
+pprint(wd.page_source)
