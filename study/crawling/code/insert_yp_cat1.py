@@ -8,7 +8,7 @@ conn = pymysql.connect(host='cowork-rds.c9acto1zciwv.ap-northeast-2.rds.amazonaw
 # Connection 으로부터 Cursor 생성
 curs = conn.cursor()
 
-with open("./doc/yp_cat1.json", encoding="UTF-8") as json_file:
+with open("./yp_cat1.json", encoding="UTF-8") as json_file:
     json_data= json.load(json_file)
     json_string= json_data.keys() #book_category.code
     for code in json_string:

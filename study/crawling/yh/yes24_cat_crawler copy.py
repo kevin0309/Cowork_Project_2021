@@ -27,8 +27,30 @@ def find_child(tree, depth, index, path) :
 
 
 cat_tree = []
-find_child(cat_tree, 1, 1, '')
+#find_child(cat_tree, 1, 1, '')
 
-with open('yes24_cat.json', encoding='UTF-8') as json_file :
+for i in range(10, 100, 2) : 
+    cat_tree.append([])
+    for j in range(1, 100) : 
+        cat_tree[i].append([])
+        for k in range(1, 100) :
+            code = '%02d' % i + '%02d' % j + '%02d' % k
+            url = 'https://www.ypbooks.co.kr/search.yp?catesearch=true&collection=books_kor&sortField=DATE&c3=' + code
+            html = requests.get(url)
+            soup = BeautifulSoup(html.content, 'html.parser')
+            res_num = -1;
+            try :
+                res_num = int(soup.select('#searchresult > div.result > span.bookQuantity > strong')[0].text)
+            except :
+                pass
+            
+            if res_num != -1 :
+                temp_cat = {
+                    "code": code,
+                    "name": soup.find('h3', attrs={'class':'cateTit_txt'}).text
+                }
+            print(res_num)
+
+#with open('yes24_cat.json', 'w', encoding='UTF-8') as json_file :
     #json.dump(cat_tree, json_file)
-    json.dump(cat_tree, json_file, indent = 4, ensure_ascii = False)
+    #json.dump(cat_tree, json_file, indent = 4, ensure_ascii = False)
