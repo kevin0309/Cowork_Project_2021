@@ -1,0 +1,1739 @@
+[
+    {
+        "code": "001",
+        "name": "국내도서",
+        "children": [
+            {
+                "code": "001001",
+                "name": "분야별 책찾기",
+                "children": [
+                    {
+                        "code": "001001001",
+                        "name": "가정 살림",
+                        "children": [
+                            {
+                                "code": "001001001001",
+                                "name": "요리",
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "code": "001001002",
+                        "name": "자연과학",
+                        "children": []
+                    },
+                    {
+                        "code": "001001003",
+                        "name": "IT 모바일",
+                        "children": []
+                    },
+                    {
+                        "code": "001001004",
+                        "name": "국어 외국어 사전",
+                        "children": [
+                            {
+                                "code": "001001004001",
+                                "name": "한자/옥편",
+                                "children": [
+                                    {
+                                        "code": "001001004001001",
+                                        "name": "한자능력검정시험",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "001001004001002",
+                                        "name": "한자/고사성어/쓰기",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "001001004001003",
+                                        "name": "옥편/자전",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "001001004001004",
+                                        "name": "상공회의소한자",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "001001004001005",
+                                        "name": "한자자격시험",
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "code": "001001005",
+                        "name": "청소년",
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "code": "001002",
+                "name": "베스트셀러",
+                "children": []
+            },
+            {
+                "code": "001003",
+                "name": "새책 안내",
+                "children": []
+            },
+            {
+                "code": "001004",
+                "name": "독자리뷰",
+                "children": []
+            },
+            {
+                "code": "001005",
+                "name": "추천도서",
+                "children": []
+            }
+        ]
+    },
+    {
+        "code": "002",
+        "name": "외국도서",
+        "children": [
+            {
+                "code": "002001",
+                "name": "분야별 외서찾기",
+                "children": [
+                    {
+                        "code": "002001001",
+                        "name": "유아 어린이 청소년",
+                        "children": []
+                    },
+                    {
+                        "code": "002001002",
+                        "name": "ELT 사전",
+                        "children": [
+                            {
+                                "code": "002001002001",
+                                "name": "영영사전 ",
+                                "children": [
+                                    {
+                                        "code": "002001002001001",
+                                        "name": "용어사전",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "002001002001002",
+                                        "name": "일반 영영사전",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "002001002001003",
+                                        "name": "숙어/슬랭 영영사전",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "002001002001004",
+                                        "name": "유의어 사전(Thesaurus)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "002001002001005",
+                                        "name": "축쇄판/포켓 영영사전",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "002001002001006",
+                                        "name": "특수목적 영영사전",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "002001002001007",
+                                        "name": "초급/중고등학생용 영영사전",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "002001002001008",
+                                        "name": "탁상용 영영사전",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "002001002001009",
+                                        "name": "그림/화보 사전",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "002001002002",
+                                "name": "듣기 읽기 말하기 쓰기",
+                                "children": [
+                                    {
+                                        "code": "002001002002001",
+                                        "name": "어휘/숙어",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "002001002002002",
+                                        "name": "듣기",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "002001002002003",
+                                        "name": "읽기",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "002001002002004",
+                                        "name": "쓰기",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "002001002002005",
+                                        "name": "말하기",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "002001002002006",
+                                        "name": "영미문화",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "002001002002007",
+                                        "name": "문법/용례",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "002001002003",
+                                "name": "비즈니스 영어",
+                                "children": [
+                                    {
+                                        "code": "002001002003001",
+                                        "name": "레쥬메/커버 레터",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "002001002003002",
+                                        "name": "비즈니스 의사소통",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "002001002003003",
+                                        "name": "비즈니스 레터",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "002001002003004",
+                                        "name": "인터뷰 영어",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "002001002004",
+                                "name": "수험서",
+                                "children": [
+                                    {
+                                        "code": "002001002004001",
+                                        "name": "TOEFL",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "002001002004002",
+                                        "name": "GRE",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "002001002004003",
+                                        "name": "기타 수험서",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "002001002004004",
+                                        "name": "TOEIC",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "002001002004005",
+                                        "name": "GMAT",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "002001002004006",
+                                        "name": "AP",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "002001002004007",
+                                        "name": "IELTS",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "002001002004008",
+                                        "name": "LSAT",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "002001002004009",
+                                        "name": "SAT",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "002001002004010",
+                                        "name": "ACT",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "002001002004011",
+                                        "name": "NEAT",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "002001002005",
+                                "name": "영어학 & 영어교육 ",
+                                "children": [
+                                    {
+                                        "code": "002001002005001",
+                                        "name": "통사론/음운론/화용론/영어사",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "002001002005002",
+                                        "name": "영어학/언어학",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "002001002005003",
+                                        "name": "영어교육",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "002001002006",
+                                "name": "제2외국어/백과사전",
+                                "children": [
+                                    {
+                                        "code": "002001002006001",
+                                        "name": "백과사전",
+                                        "children": [
+                                            {
+                                                "code": "002001002006001001",
+                                                "name": "인문 과학 백과 사전",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "002001002006001002",
+                                                "name": "자연 과학 백과 사전",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "002001002006001003",
+                                                "name": "요리/인테리어 백과 사전",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "002001002006001004",
+                                                "name": "예술/영화 백과 사전",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "002001002006001005",
+                                                "name": "건강/스포츠 백과 사전",
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "code": "002001002006002",
+                                        "name": "세계지도",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "002001002006003",
+                                        "name": "제2외국어 학습",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "002001002007",
+                                "name": "유학준비",
+                                "children": [
+                                    {
+                                        "code": "002001002007001",
+                                        "name": "외국대학/대학원 가이드",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "002001002007002",
+                                        "name": "에세이/지원 절차",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "002001002007003",
+                                        "name": "학교 생활/학습법 가이드",
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "002002",
+                "name": "베스트셀러",
+                "children": []
+            },
+            {
+                "code": "002003",
+                "name": "새책 안내",
+                "children": [
+                    {
+                        "code": "002003001",
+                        "name": "Hot New Releases in Amazon.com",
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "code": "002004",
+                "name": "작가 파일",
+                "children": [
+                    {
+                        "code": "002004001",
+                        "name": "외국작가",
+                        "children": []
+                    },
+                    {
+                        "code": "002004002",
+                        "name": "국내작가",
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "code": "002005",
+                "name": "독자리뷰",
+                "children": []
+            },
+            {
+                "code": "002006",
+                "name": "기획리스트",
+                "children": []
+            },
+            {
+                "code": "002007",
+                "name": "추천도서",
+                "children": []
+            },
+            {
+                "code": "002008",
+                "name": "기획박스",
+                "children": []
+            }
+        ]
+    },
+    {
+        "code": "003",
+        "name": "CD/LP",
+        "children": [
+            {
+                "code": "003001",
+                "name": "쟝르별 음반찾기",
+                "children": [
+                    {
+                        "code": "003001001",
+                        "name": "가요",
+                        "children": [
+                            {
+                                "code": "003001001001",
+                                "name": "댄스",
+                                "children": []
+                            },
+                            {
+                                "code": "003001001002",
+                                "name": "발라드",
+                                "children": []
+                            },
+                            {
+                                "code": "003001001003",
+                                "name": "록/인디록/메탈",
+                                "children": []
+                            },
+                            {
+                                "code": "003001001004",
+                                "name": "R&B/소울",
+                                "children": []
+                            },
+                            {
+                                "code": "003001001005",
+                                "name": "힙합",
+                                "children": []
+                            },
+                            {
+                                "code": "003001001006",
+                                "name": "포크",
+                                "children": []
+                            },
+                            {
+                                "code": "003001001007",
+                                "name": "재즈",
+                                "children": []
+                            },
+                            {
+                                "code": "003001001008",
+                                "name": "성인/트롯트",
+                                "children": []
+                            },
+                            {
+                                "code": "003001001009",
+                                "name": "가요 컴필레이션",
+                                "children": []
+                            },
+                            {
+                                "code": "003001001010",
+                                "name": "일렉트로니카/테크노",
+                                "children": []
+                            },
+                            {
+                                "code": "003001001011",
+                                "name": "뮤직어워드 수상작 모음",
+                                "children": [
+                                    {
+                                        "code": "003001001011001",
+                                        "name": "2018 골든디스크 수상작",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001001011002",
+                                        "name": "2017 멜론 뮤직 어워즈 수상작",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001001011003",
+                                        "name": "2017 MAMA 수상작",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001001011004",
+                                        "name": "2018 가온차트 뮤직어워즈 수상작",
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "code": "003001002",
+                        "name": "POP",
+                        "children": [
+                            {
+                                "code": "003001002001",
+                                "name": "Pop",
+                                "children": [
+                                    {
+                                        "code": "003001002001001",
+                                        "name": "Pop(라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001002001002",
+                                        "name": "Pop(수입)",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001002002",
+                                "name": "R&B/Soul",
+                                "children": [
+                                    {
+                                        "code": "003001002002001",
+                                        "name": "R&B/Soul(라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001002002002",
+                                        "name": "R&B/Soul(수입)",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001002003",
+                                "name": "Hip-Hop",
+                                "children": [
+                                    {
+                                        "code": "003001002003001",
+                                        "name": "Hip-Hop(라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001002003002",
+                                        "name": "Hip-Hop(수입)",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001002004",
+                                "name": "Electronica/Techno",
+                                "children": [
+                                    {
+                                        "code": "003001002004001",
+                                        "name": "Electronica/Techno(라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001002004002",
+                                        "name": "Electronica/Techno(수입)",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001002005",
+                                "name": "Folk",
+                                "children": [
+                                    {
+                                        "code": "003001002005001",
+                                        "name": "Folk (라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001002005002",
+                                        "name": "Folk (수입)",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001002006",
+                                "name": "Pop 컴필레이션",
+                                "children": [
+                                    {
+                                        "code": "003001002006001",
+                                        "name": "Pop 컴필레이션(라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001002006002",
+                                        "name": "Pop 컴필레이션(수입)",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001002007",
+                                "name": "Blues",
+                                "children": [
+                                    {
+                                        "code": "003001002007001",
+                                        "name": "Blues(라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001002007002",
+                                        "name": "Blues(수입)",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001002008",
+                                "name": "Old Pop",
+                                "children": [
+                                    {
+                                        "code": "003001002008001",
+                                        "name": "Old Pop(라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001002008002",
+                                        "name": "Old Pop(수입)",
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "code": "003001003",
+                        "name": "뉴에이지",
+                        "children": [
+                            {
+                                "code": "003001003001",
+                                "name": "New Age",
+                                "children": [
+                                    {
+                                        "code": "003001003001001",
+                                        "name": "New Age(라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001003001002",
+                                        "name": "New Age(수입)",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001003002",
+                                "name": "New Age 컴필레이션",
+                                "children": [
+                                    {
+                                        "code": "003001003002001",
+                                        "name": "New Age 컴필레이션(라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001003002002",
+                                        "name": "New Age 컴필레이션(수입)",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001003003",
+                                "name": "SACD",
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "code": "003001004",
+                        "name": "월드뮤직",
+                        "children": [
+                            {
+                                "code": "003001004001",
+                                "name": "Europe",
+                                "children": [
+                                    {
+                                        "code": "003001004001001",
+                                        "name": "Europe(라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001004001002",
+                                        "name": "Europe(수입)",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001004002",
+                                "name": "African",
+                                "children": [
+                                    {
+                                        "code": "003001004002001",
+                                        "name": "African(라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001004002002",
+                                        "name": "African(수입)",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001004003",
+                                "name": "Asian",
+                                "children": [
+                                    {
+                                        "code": "003001004003001",
+                                        "name": "Asian(라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001004003002",
+                                        "name": "Asian(수입)",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001004004",
+                                "name": "Latin/America",
+                                "children": [
+                                    {
+                                        "code": "003001004004001",
+                                        "name": "Latin/America(라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001004004002",
+                                        "name": "Latin/America(수입)",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001004005",
+                                "name": "World Music 컴필레이션",
+                                "children": [
+                                    {
+                                        "code": "003001004005001",
+                                        "name": "World Music 컴필레이션(라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001004005002",
+                                        "name": "World Music 컴필레이션(수입)",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001004006",
+                                "name": "World Music 기타지역",
+                                "children": [
+                                    {
+                                        "code": "003001004006001",
+                                        "name": "World Music 기타지역 (라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001004006002",
+                                        "name": "World Music 기타지역 (수입)",
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "code": "003001005",
+                        "name": "재즈",
+                        "children": [
+                            {
+                                "code": "003001005001",
+                                "name": "Vocal",
+                                "children": [
+                                    {
+                                        "code": "003001005001001",
+                                        "name": "Vocal(라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001005001002",
+                                        "name": "Vocal(수입)",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001005002",
+                                "name": "Instrumental",
+                                "children": [
+                                    {
+                                        "code": "003001005002001",
+                                        "name": "Instrumental(라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001005002002",
+                                        "name": "Instrumental(수입)",
+                                        "children": [
+                                            {
+                                                "code": "003001005002002001",
+                                                "name": "색소폰",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "003001005002002002",
+                                                "name": "재즈 피아노",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "003001005002002003",
+                                                "name": "트럼펫",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "003001005002002004",
+                                                "name": "베이스",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "003001005002002005",
+                                                "name": "드럼",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "003001005002002006",
+                                                "name": "기타",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "003001005002002007",
+                                                "name": "트럼본",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "003001005002002008",
+                                                "name": "아코디언",
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001005003",
+                                "name": "Jazz 컴필레이션",
+                                "children": [
+                                    {
+                                        "code": "003001005003001",
+                                        "name": "Jazz 컴필레이션(라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001005003002",
+                                        "name": "Jazz 컴필레이션(수입)",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001005004",
+                                "name": "Latin Jazz",
+                                "children": [
+                                    {
+                                        "code": "003001005004001",
+                                        "name": "Latin Jazz(라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001005004002",
+                                        "name": "Latin Jazz(수입)",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001005005",
+                                "name": "Fusion/Acid",
+                                "children": [
+                                    {
+                                        "code": "003001005005001",
+                                        "name": "Fusion/Acid(라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001005005002",
+                                        "name": "Fusion/Acid(수입)",
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "code": "003001006",
+                        "name": "클래식",
+                        "children": [
+                            {
+                                "code": "003001006001",
+                                "name": "보컬",
+                                "children": [
+                                    {
+                                        "code": "003001006001001",
+                                        "name": "보컬 (라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001006001002",
+                                        "name": "보컬 (수입)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001006001003",
+                                        "name": "한국 가곡 ",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001006002",
+                                "name": "관현악",
+                                "children": [
+                                    {
+                                        "code": "003001006002001",
+                                        "name": "관현악 (수입)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001006002002",
+                                        "name": "관현악 (라이센스)",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001006003",
+                                "name": "협주곡",
+                                "children": [
+                                    {
+                                        "code": "003001006003001",
+                                        "name": "협주곡 (수입)",
+                                        "children": [
+                                            {
+                                                "code": "003001006003001001",
+                                                "name": "바이올린",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "003001006003001002",
+                                                "name": "피아노",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "003001006003001003",
+                                                "name": "리코더",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "003001006003001004",
+                                                "name": "플루트",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "003001006003001005",
+                                                "name": "첼로",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "003001006003001006",
+                                                "name": "클라리넷",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "003001006003001007",
+                                                "name": "호른",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "003001006003001008",
+                                                "name": "하프시코드",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "003001006003001009",
+                                                "name": "트럼펫",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "003001006003001010",
+                                                "name": "트럼본",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "003001006003001011",
+                                                "name": "오보에",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "003001006003001012",
+                                                "name": "바순",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "003001006003001013",
+                                                "name": "더블베이스",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "003001006003001014",
+                                                "name": "하프",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "003001006003001015",
+                                                "name": "비올라",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "003001006003001016",
+                                                "name": "클래식 기타",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "003001006003001017",
+                                                "name": "색소폰",
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "code": "003001006003002",
+                                        "name": "협주곡 (라이센스)",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001006004",
+                                "name": "실내악",
+                                "children": [
+                                    {
+                                        "code": "003001006004001",
+                                        "name": "실내악 (수입)",
+                                        "children": [
+                                            {
+                                                "code": "003001006004001001",
+                                                "name": "바이올린",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "003001006004001002",
+                                                "name": "오르간",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "003001006004001003",
+                                                "name": "피아노",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "003001006004001004",
+                                                "name": "첼로",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "003001006004001005",
+                                                "name": "하프시코드",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "003001006004001006",
+                                                "name": "색소폰",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "003001006004001007",
+                                                "name": "플루트",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "003001006004001008",
+                                                "name": "호른",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "003001006004001009",
+                                                "name": "클라리넷",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "003001006004001010",
+                                                "name": "비올라",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "003001006004001011",
+                                                "name": "클래식 기타",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "003001006004001012",
+                                                "name": "오보에",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "003001006004001013",
+                                                "name": "리코더",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "003001006004001014",
+                                                "name": "비올라 다 감바",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "003001006004001015",
+                                                "name": "트럼펫",
+                                                "children": []
+                                            },
+                                            {
+                                                "code": "003001006004001016",
+                                                "name": "더블베이스",
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "code": "003001006004002",
+                                        "name": "실내악 (라이센스)",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001006005",
+                                "name": "크로스오버",
+                                "children": [
+                                    {
+                                        "code": "003001006005001",
+                                        "name": "크로스오버 (수입)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001006005002",
+                                        "name": "크로스오버 (라이센스)",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001006006",
+                                "name": "클래식 컴필레이션",
+                                "children": [
+                                    {
+                                        "code": "003001006006001",
+                                        "name": "클래식 컴필레이션 (수입)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001006006002",
+                                        "name": "클래식 컴필레이션 (라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001006006003",
+                                        "name": "테마별 컴필레이션",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001006006004",
+                                        "name": "인물별 컴필레이션",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001006007",
+                                "name": "오페라",
+                                "children": [
+                                    {
+                                        "code": "003001006007001",
+                                        "name": "오페라 (라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001006007002",
+                                        "name": "오페라 (수입)",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001006008",
+                                "name": "종교음악",
+                                "children": [
+                                    {
+                                        "code": "003001006008001",
+                                        "name": "종교음악 (수입)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001006008002",
+                                        "name": "종교음악 (라이센스)",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001006009",
+                                "name": "고음악",
+                                "children": [
+                                    {
+                                        "code": "003001006009001",
+                                        "name": "고음악 (수입)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001006009002",
+                                        "name": "고음악 (라이센스)",
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "code": "003001007",
+                        "name": "국악",
+                        "children": [
+                            {
+                                "code": "003001007001",
+                                "name": "소리",
+                                "children": []
+                            },
+                            {
+                                "code": "003001007002",
+                                "name": "연주곡",
+                                "children": []
+                            },
+                            {
+                                "code": "003001007003",
+                                "name": "크로스오버",
+                                "children": []
+                            },
+                            {
+                                "code": "003001007004",
+                                "name": "국악 컴필레이션",
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "code": "003001008",
+                        "name": "OST",
+                        "children": [
+                            {
+                                "code": "003001008001",
+                                "name": "영화",
+                                "children": [
+                                    {
+                                        "code": "003001008001001",
+                                        "name": "영화(라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001008001002",
+                                        "name": "영화(수입)",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001008002",
+                                "name": "드라마",
+                                "children": [
+                                    {
+                                        "code": "003001008002001",
+                                        "name": "드라마(라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001008002002",
+                                        "name": "드라마(수입)",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001008003",
+                                "name": "뮤지컬",
+                                "children": [
+                                    {
+                                        "code": "003001008003001",
+                                        "name": "뮤지컬(라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001008003002",
+                                        "name": "뮤지컬(수입)",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001008004",
+                                "name": "애니메이션/게임",
+                                "children": [
+                                    {
+                                        "code": "003001008004001",
+                                        "name": "애니메이션/게임(라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001008004002",
+                                        "name": "애니메이션/게임(수입)",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001008005",
+                                "name": "OST 컴필레이션",
+                                "children": [
+                                    {
+                                        "code": "003001008005001",
+                                        "name": "OST 컴필레이션(라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001008005002",
+                                        "name": "OST 컴필레이션(수입)",
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "code": "003001009",
+                        "name": "유아/어린이/명상",
+                        "children": [
+                            {
+                                "code": "003001009001",
+                                "name": "명상",
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "code": "003001010",
+                        "name": "종교음악",
+                        "children": []
+                    },
+                    {
+                        "code": "003001011",
+                        "name": "ROCK",
+                        "children": [
+                            {
+                                "code": "003001011001",
+                                "name": "Metal/Hardcore",
+                                "children": [
+                                    {
+                                        "code": "003001011001001",
+                                        "name": "Metal/Hardcore(라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001011001002",
+                                        "name": "Metal/Hardcore(수입)",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001011002",
+                                "name": "Old Rock",
+                                "children": [
+                                    {
+                                        "code": "003001011002001",
+                                        "name": "Old Rock(라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001011002002",
+                                        "name": "Old Rock(수입)",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001011003",
+                                "name": "British/Modern/Garage/indie",
+                                "children": [
+                                    {
+                                        "code": "003001011003001",
+                                        "name": "British/Modern/Garage/indie(라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001011003002",
+                                        "name": "British/Modern/Garage/indie(수입)",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001011004",
+                                "name": "Art/Progressive/Psychedelic",
+                                "children": [
+                                    {
+                                        "code": "003001011004001",
+                                        "name": "Art/Progressive/Psychedelic(라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001011004002",
+                                        "name": "Art/Progressive/Psychedelic(수입)",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001011005",
+                                "name": "Rock 컴필레이션",
+                                "children": [
+                                    {
+                                        "code": "003001011005001",
+                                        "name": "Rock 컴필레이션(라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001011005002",
+                                        "name": "Rock 컴필레이션(수입)",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001011006",
+                                "name": "Hard Rock",
+                                "children": [
+                                    {
+                                        "code": "003001011006001",
+                                        "name": "Hard Rock(라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001011006002",
+                                        "name": "Hard Rock(수입)",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001011007",
+                                "name": "Punk",
+                                "children": [
+                                    {
+                                        "code": "003001011007001",
+                                        "name": "Punk Rock(라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001011007002",
+                                        "name": "Punk Rock(수입)",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001011008",
+                                "name": "Alternative/Grunge",
+                                "children": [
+                                    {
+                                        "code": "003001011008001",
+                                        "name": "Alternative/Grunge(라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001011008002",
+                                        "name": "Alternative/Grunge(수입)",
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "code": "003001012",
+                        "name": "일본음악",
+                        "children": [
+                            {
+                                "code": "003001012001",
+                                "name": "J-Pop",
+                                "children": [
+                                    {
+                                        "code": "003001012001001",
+                                        "name": "J-Pop(라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001012001002",
+                                        "name": "J-Pop(수입)",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001012002",
+                                "name": "J-Rock",
+                                "children": [
+                                    {
+                                        "code": "003001012002001",
+                                        "name": "J-Rock(라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001012002002",
+                                        "name": "J-Rock(수입)",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001012003",
+                                "name": "J-Jazz",
+                                "children": [
+                                    {
+                                        "code": "003001012003001",
+                                        "name": "J-Jazz(라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001012003002",
+                                        "name": "J-Jazz(수입)",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001012004",
+                                "name": "J-New Age",
+                                "children": [
+                                    {
+                                        "code": "003001012004001",
+                                        "name": "J-New Age(라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001012004002",
+                                        "name": "J-New Age(수입)",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "003001012005",
+                                "name": "J-OST",
+                                "children": [
+                                    {
+                                        "code": "003001012005001",
+                                        "name": "J-OST(라이센스)",
+                                        "children": []
+                                    },
+                                    {
+                                        "code": "003001012005002",
+                                        "name": "J-OST(수입)",
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "003002",
+                "name": "베스트셀러",
+                "children": []
+            },
+            {
+                "code": "003003",
+                "name": "새음반",
+                "children": []
+            },
+            {
+                "code": "003004",
+                "name": "기획 코너",
+                "children": []
+            },
+            {
+                "code": "003005",
+                "name": "수입 음반",
+                "children": []
+            },
+            {
+                "code": "003006",
+                "name": "추천 음반",
+                "children": []
+            },
+            {
+                "code": "003007",
+                "name": "HOT SALE",
+                "children": []
+            }
+        ]
+    },
+    {
+        "code": "004",
+        "name": "DVD/Blu-ray",
+        "children": [
+            {
+                "code": "004001",
+                "name": "쟝르별 상품찾기",
+                "children": []
+            },
+            {
+                "code": "004002",
+                "name": "베스트셀러",
+                "children": []
+            },
+            {
+                "code": "004003",
+                "name": "신작 안내",
+                "children": []
+            },
+            {
+                "code": "004004",
+                "name": "미디어리뷰",
+                "children": [
+                    {
+                        "code": "004004001",
+                        "name": "동아일보",
+                        "children": []
+                    },
+                    {
+                        "code": "004004002",
+                        "name": "조선일보",
+                        "children": []
+                    },
+                    {
+                        "code": "004004003",
+                        "name": "중앙일보",
+                        "children": []
+                    },
+                    {
+                        "code": "004004004",
+                        "name": "전자/IT/스포츠신문",
+                        "children": []
+                    },
+                    {
+                        "code": "004004005",
+                        "name": "한겨레",
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "code": "004005",
+                "name": "고객리뷰",
+                "children": [
+                    {
+                        "code": "004005001",
+                        "name": "DVD",
+                        "children": []
+                    },
+                    {
+                        "code": "004005002",
+                        "name": "비디오",
+                        "children": []
+                    },
+                    {
+                        "code": "004005003",
+                        "name": "VCD",
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "code": "004006",
+                "name": "기획코너",
+                "children": [
+                    {
+                        "code": "004006001",
+                        "name": "북핵 실험 관련",
+                        "children": []
+                    },
+                    {
+                        "code": "004006002",
+                        "name": "한국 독립영화 ",
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    }
+]
