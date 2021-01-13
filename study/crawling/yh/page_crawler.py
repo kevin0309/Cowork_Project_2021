@@ -8,15 +8,19 @@ from bs4 import BeautifulSoup
 
 def get_book_info_from_page(c3, start_cnt, show_cnt) :
     '''
-        가져와야 할 데이터 - 제목, 저자, 출판사, 출판일, 판매가, 쪽수, 키워드
-        name, author, publisher, pub_date, price, pages, [tags]
+        @param c3       : 책 카테고리 코드
+        @param start_cnt: 시작 인덱스
+        @param show_cnt : 간격
+        @return 책 정보
     '''
     url = ' http://www.ypbooks.co.kr/search.yp?catesearch=true&collection=books_kor&sortField=DATE&c3=' + \
                 c3 + '&startCnt=' + start_cnt + '&showCnt=' + show_cnt
     html = requests.get(url)
     soup = BeautifulSoup(html.content, 'html.parser')
-    res = []    # 책 정보를 담을 변수
+    res = []    
     book_list = soup.select('#resultlist')  # soup객체로 변환
+    # 가져와야 할 데이터 - 제목, 저자, 출판사, 출판일, 판매가, 쪽수, 키워드
+    # name, author, publisher, pub_date, price, pages, [tags]
     for item in book_list : 
         try :
             info1 = item.select('#resultlist_cont>.recom>.info01')[0].text.split('|')
@@ -42,9 +46,8 @@ def get_book_info_from_page(c3, start_cnt, show_cnt) :
 
 def get_book_info_from_cat3(c3) : 
     '''
-        책 카테고리 코드별 목록 페이지에서 지정한 범위마다 책 정보를 가져오는 함수 호출
-        호츌 함수: get_book_info_from_page
-        지정 범위: strat_cnt에서 show_cnt만큼의 책
+        @param c3:  (string)책 카테고리 코드
+        @return (list)책 정보
 
     '''
     res = []
