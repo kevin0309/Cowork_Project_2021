@@ -46,7 +46,7 @@ def get_book_info_from_page(c3, start_cnt, show_cnt) :
 
 def get_book_info_from_cat3(c3) : 
     '''
-        @param c3:  (string)책 카테고리 코드
+        @param c3: (string)책 카테고리 코드
         @return (list)책 정보
 
     '''
