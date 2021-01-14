@@ -4,7 +4,9 @@
 # @Description   : DB에 저장된 book_category.code값으로 영풍문고 사이트에 있는 국내도서 책 정보를 list로 반환하는 코드
 
 import requests
+import time
 from bs4 import BeautifulSoup
+from datetime import datetime
 
 class PageCrawler :
     def __get_book_info_from_page(self, c3, start_cnt, show_cnt) :
@@ -34,7 +36,6 @@ class PageCrawler :
                     'price': int(item.select('#resultlist_cont>.recom>dl')[4].select('.price>.cost')[0].text.strip().replace(',', '')),
                     'tags': []  
                 }
-
                 for keyword in item.select('#resultlist_cont>.recom>.keyword>a') : 
                     temp_book_info['tags'].append(keyword.text.strip())
 

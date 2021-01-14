@@ -38,7 +38,7 @@ class PyMySQLUtil :
 
         return self.conn
 
-    def excute_query(self, query) : 
+    def execute_query(self, query) : 
         '''
             @param query: (string) 실행시킬 쿼리문
             @return (tuple) 쿼리 실행 결과
