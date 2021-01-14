@@ -8,10 +8,10 @@ from bs4 import BeautifulSoup
 
 def get_book_info_from_page(c3, start_cnt, show_cnt) :
     '''
-        @param c3       : 책 카테고리 코드
-        @param start_cnt: 시작 인덱스
-        @param show_cnt : 간격
-        @return 책 정보
+        @param c3       : (string)책 카테고리 코드
+        @param start_cnt: (string)시작 인덱스
+        @param show_cnt : (string)간격
+        @return (list)책 정보
     '''
     url = ' http://www.ypbooks.co.kr/search.yp?catesearch=true&collection=books_kor&sortField=DATE&c3=' + \
                 c3 + '&startCnt=' + start_cnt + '&showCnt=' + show_cnt
@@ -46,7 +46,7 @@ def get_book_info_from_page(c3, start_cnt, show_cnt) :
 
 def get_book_info_from_cat3(c3) : 
     '''
-        @param c3:  (string)책 카테고리 코드
+        @param c3: (string)책 카테고리 코드
         @return (list)책 정보
 
     '''
