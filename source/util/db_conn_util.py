@@ -47,7 +47,7 @@ class PyMySQLUtil :
             @return (tuple) 쿼리 실행 결과
         '''
         cursor = self.conn.cursor()
-        cursor.execute(excute_query, params)
+        cursor.execute(query, params)
         return cursor.fetchall()
 
     def close_conn() :
@@ -57,4 +57,4 @@ class PyMySQLUtil :
         self.conn.close()
 
     # TODO: PreparedStatement 기능 구현?
-    
+
