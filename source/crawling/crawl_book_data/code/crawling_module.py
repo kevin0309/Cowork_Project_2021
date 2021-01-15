@@ -64,5 +64,5 @@ class CrawlingModule:
 
 
 
-test= ExampleClass()
+test= CrawlingModule()
 test.get_page_crawler()
