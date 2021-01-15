@@ -24,11 +24,11 @@ class CrawlingModule:
         sql= "SELECT category_seq, code FROM book_category where char_length(code)=6" 
         return self.db.execute_query(sql)
     
-    def insert_book_info(self, c3, books):  
+    def insert_book_info(self, category_seq, books):   # EDIT: insert_book_info함수 인자를 c3->category_seq로 변경
         '''
             get_page_crawler에서 반환한 책 정보를 DB에 저장하는 함수
         '''
-        category_seq= c3[0]
+        #category_seq= c3[0]
         for book in books:  #book의 keys: name, author, publisher, pub_date, price, pages, [tags]
             name= book["name"]
             author= book["author"]
@@ -56,13 +56,15 @@ class CrawlingModule:
         '''
         # TODO: 책 목록에서 최신 목록만 가져오는 필터링 필요
         # TODO: DB에 이미 저장된 책 정보인지 비교할 수 있는 함수 필요
-        c3_list= self.select_category_code()
-        for c3 in c3_list:  #c3의 구성: (category_seq,code)
+        category_list= self.select_category_code()
+        for c3 in category_list:  #c3의 구성: (category_seq,code)
+            category_seq= c3[0]
             code= c3[1]
             books= self.crawler.get_book_info_from_cat3(code)
-            self.insert_book_info(c3, books)
+            self.insert_book_info(category_seq, books) 
 
 
 
 test= ExampleClass()
 test.get_page_crawler()
+
