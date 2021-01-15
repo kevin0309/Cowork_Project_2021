@@ -24,29 +24,29 @@ class CrawlingModule:
         sql= "SELECT category_seq, code FROM book_category where char_length(code)=6" 
         return self.db.execute_query(sql)
     
-    def insert_book_info(self, category_seq, books):   # EDIT: insert_book_info함수 인자를 c3->category_seq로 변경
+    def insert_book_info(self, category_seq, books):  
         '''
             get_page_crawler에서 반환한 책 정보를 DB에 저장하는 함수
         '''
-        #category_seq= c3[0]
         for book in books:  #book의 keys: name, author, publisher, pub_date, price, pages, [tags]
             name= book["name"]
             author= book["author"]
             publisher= book["publisher"]
-            pub_date_str= book["pub_date_str"]  
+            pub_date= book["pub_date"] #datetime
             price= book["price"] 
             pages= book["pages"] 
             tags= book["tags"] #list
-            
-            sql= "INSERT INTO book_info VALUES(NULL, '"+name+"',NULL,'"+author+"','"+publisher+"',timestamp(date_format('"+pub_date_str+\
-            "','%Y.%m.%d')),"+str(category_seq)+","+str(price)+","+str(pages)+",sysdate())"                      # book_info 테이블에 책 정보 삽입
-            self.db.execute_query(sql)
-            sql1= "SELECT book_seq from book_info order by book_seq desc limit 1"                   # book_info 테이블에 가장 최근에 입력된 row의 book_seq 조회               
+
+            sql= "INSERT INTO book_info VALUES(NULL,%s,NULL,%s,%s,%s,%s,%s,%s,sysdate())"    #book_info 테이블에 책 정보 삽입
+            book_seq= self.db.execute_query(sql, (name, author, publisher, pub_date, category_seq, price, pages))
+             
+
+            sql1= "SELECT book_seq from book_info order by book_seq desc limit 1"   #book_info 테이블에 가장 최근에 입력된 row의 book_seq 조회               
             book_seq= self.db.execute_query(sql1)
 
             for tag in tags:
-                sql2= "INSERT INTO book_tags VALUES(NULL, "+str(book_seq[0][0])+",'"+tag+"',sysdate())"   # book_tags 테이블에 태그 삽입
-                self.db.execute_query(sql2)
+                sql2= "INSERT INTO book_tags VALUES(NULL, %s, %s,sysdate())"        #book_tags 테이블에 태그 삽입
+                self.db.execute_query(sql2, (book_seq[0][0],tag))
         print(category_seq, datetime.now()) #카테고리별 종료시간 출력
                
 
@@ -54,8 +54,8 @@ class CrawlingModule:
         '''
             DB에서 가져온 c3 카테고리로 page_crawler를 호출하는 함수
         '''
-        # TODO: 책 목록에서 최신 목록만 가져오는 필터링 필요
-        # TODO: DB에 이미 저장된 책 정보인지 비교할 수 있는 함수 필요
+        #TODO: 책 목록에서 최신 목록만 가져오는 필터링 필요
+        #TODO: DB에 이미 저장된 책 정보인지 비교할 수 있는 함수 필요
         category_list= self.select_category_code()
         for c3 in category_list:  #c3의 구성: (category_seq,code)
             category_seq= c3[0]
@@ -65,6 +65,5 @@ class CrawlingModule:
 
 
 
-test= ExampleClass()
+test= CrawlingModule()
 test.get_page_crawler()
-
