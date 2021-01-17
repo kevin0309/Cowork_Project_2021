@@ -6,7 +6,7 @@
 import os
 import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))))
-import datetime
+from datetime import datetime
 import threading
 
 import page_crawler
@@ -51,7 +51,7 @@ class CrawlingModule:
             for tag in tags:
                 sql2= "INSERT INTO book_tags VALUES(NULL, %s, %s,sysdate())"        #book_tags 테이블에 태그 삽입
                 self.db_conn_list[t_index].execute_query(sql2, (book_seq[0][0],tag))
-        print(category_seq, datetime.datetime.now()) #카테고리별 종료시간 출력
+        print(category_seq, datetime.now()) #카테고리별 종료시간 출력
                
     def get_page_crawler(self, thread_cnt, fixed_pub_date_start, fixed_pub_date_end):
         '''
@@ -95,6 +95,7 @@ class CrawlingModule:
             return
         category_seq= self.__category_list[self.__next_category_cnt][0]
         code = self.__category_list[self.__next_category_cnt][1]
+        print(t_index,'thread start -', code, category_seq)
         self.__next_category_cnt += 1
         self.lock.release()
 
@@ -104,7 +105,7 @@ class CrawlingModule:
         self.__crawl_next(t_index)
 
 test= CrawlingModule()
-fixed_pub_date_start = datetime.datetime.strptime('1000.01.01', '%Y.%m.%d')
-fixed_pub_date_end = datetime.datetime.strptime('2021.01.16 23:59:59', '%Y.%m.%d %H:%M:%S')
+fixed_pub_date_start = datetime.strptime('1000.01.01', '%Y.%m.%d')
+fixed_pub_date_end = datetime.strptime('2021.01.16 23:59:59', '%Y.%m.%d %H:%M:%S')
 #fixed_pub_date_end = datetime.datetime.combine(datetime.date(2021, 1, 16), datetime.time(23, 59, 59))
 test.get_page_crawler(10, fixed_pub_date_start, fixed_pub_date_end)
