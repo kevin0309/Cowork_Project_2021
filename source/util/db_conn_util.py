@@ -55,6 +55,4 @@ class PyMySQLUtil :
             객체 사용 후 마지막에 꼭 close 시킬것!
         '''
         self.conn.close()
-
-    # TODO: PreparedStatement 기능 구현?
     

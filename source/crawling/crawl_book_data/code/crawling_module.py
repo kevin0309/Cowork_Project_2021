@@ -37,15 +37,15 @@ class CrawlingModule:
             pages= book["pages"] 
             tags= book["tags"] #list
 
-            sql= "INSERT INTO book_info VALUES(NULL,%s,NULL,%s,%s,%s,%s,%s,%s,sysdate())"    #book_info 테이블에 책 정보 삽입
+            sql= "INSERT INTO book_info VALUES(NULL,%s,NULL,%s,%s,%s,%s,%s,%s,sysdate())" #book_info 테이블에 책 정보 삽입
             book_seq= self.db.execute_query(sql, (name, author, publisher, pub_date, category_seq, price, pages))
              
 
-            sql1= "SELECT book_seq from book_info order by book_seq desc limit 1"   #book_info 테이블에 가장 최근에 입력된 row의 book_seq 조회               
+            sql1= "SELECT book_seq from book_info order by book_seq desc limit 1" #book_info 테이블에 가장 최근에 입력된 row의 book_seq 조회               
             book_seq= self.db.execute_query(sql1)
 
             for tag in tags:
-                sql2= "INSERT INTO book_tags VALUES(NULL, %s, %s,sysdate())"        #book_tags 테이블에 태그 삽입
+                sql2= "INSERT INTO book_tags VALUES(NULL, %s, %s,sysdate())"      #book_tags 테이블에 태그 삽입
                 self.db.execute_query(sql2, (book_seq[0][0],tag))
         print(category_seq, datetime.now()) #카테고리별 종료시간 출력
                
