@@ -50,7 +50,7 @@ class PyMySQLUtil :
         cursor.execute(query, params)
         return cursor.fetchall()
 
-    def close_conn() :
+    def close_conn(self) :
         '''
             객체 사용 후 마지막에 꼭 close 시킬것!
         '''
