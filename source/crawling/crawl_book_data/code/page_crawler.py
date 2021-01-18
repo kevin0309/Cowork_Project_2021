@@ -8,6 +8,8 @@ import time
 from bs4 import BeautifulSoup
 from datetime import datetime
 
+import http_error
+
 class PageCrawler :
     __book_name_blacklist = [
         '.', '사용안함'
@@ -23,6 +25,10 @@ class PageCrawler :
         url = 'http://www.ypbooks.co.kr/search.yp?catesearch=true&collection=books_kor&sortField=DATE&c3=' + \
                     c3 + '&startCnt=' + start_cnt + '&showCnt=' + show_cnt
         html = requests.get(url)
+
+        if not (html.status_code == 200 and html.ok) :
+            raise http_error.HTTPError('Page unavailable', url)
+
         soup = BeautifulSoup(html.content, 'html.parser')
         res = []    
         book_list = soup.select('#resultlist')  #soup객체로 변환

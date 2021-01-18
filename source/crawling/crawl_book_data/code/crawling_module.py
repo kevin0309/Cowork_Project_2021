@@ -10,19 +10,20 @@ from datetime import datetime
 import threading
 
 import page_crawler
+import http_error
 from util import db_conn_util
 
 class CrawlingModule:
     def __init__(self):
         self.db= db_conn_util.PyMySQLUtil()
-        self.crawler= page_crawler.PageCrawler()
 
     def __select_category_code(self):
         '''
             DB에 연결하여 책 카테고리가 c3인 code와 category_seq를 반환하는 함수
             @return (tuple)책 카테고리 코드(category_seq, code)  
         '''
-        sql= "SELECT category_seq, code FROM book_category where char_length(code)=6" 
+        #sql= "SELECT category_seq, code FROM book_category where char_length(code)=6"
+        sql= "select category_seq, code from book_category where category_seq not in (select distinct category_seq from book_info) and category_seq >= 333;" 
         return self.db.execute_query(sql)
     
     def __insert_book_info(self, category_seq, books, t_index):  
@@ -63,8 +64,9 @@ class CrawlingModule:
         '''
         self.__start_date = fixed_pub_date_start
         self.__end_date = fixed_pub_date_end
-        self.__category_list= self.__select_category_code()
+        #self.__category_list= self.__select_category_code()
         self.__next_category_cnt = 0
+        self.__error_category_list = []
         self.lock = threading.Lock()
 
         self.db_conn_list = []
@@ -83,6 +85,10 @@ class CrawlingModule:
             self.db_conn_list[i].close_conn()
         self.db.close_conn()
 
+        print('페이지 오류로 실행되지 못한 카테고리 리스트')
+        print(self.__error_category_list)
+        print(len(self.__error_category_list))
+
     def __crawl_next(self, t_index) :
         '''
             쓰레드에서 실행할 재귀함수
@@ -99,13 +105,19 @@ class CrawlingModule:
         self.__next_category_cnt += 1
         self.lock.release()
 
-        books= self.crawler.get_book_info_from_cat3(code, self.__start_date, self.__end_date)
-        self.__insert_book_info(category_seq, books, t_index)
+        try :
+            books= page_crawler.PageCrawler().get_book_info_from_cat3(code, self.__start_date, self.__end_date)
+            self.__insert_book_info(category_seq, books, t_index)
+        except :
+            print('page error occured -', code, category_seq)
+            self.lock.acquire()
+            self.__error_category_list.append([category_seq, code])
+            self.lock.release()
 
         self.__crawl_next(t_index)
 
 test= CrawlingModule()
 fixed_pub_date_start = datetime.strptime('1000.01.01', '%Y.%m.%d')
-fixed_pub_date_end = datetime.strptime('2021.01.16 23:59:59', '%Y.%m.%d %H:%M:%S')
+fixed_pub_date_end = datetime.strptime('2021.01.18 23:59:59', '%Y.%m.%d %H:%M:%S')
 #fixed_pub_date_end = datetime.datetime.combine(datetime.date(2021, 1, 16), datetime.time(23, 59, 59))
-test.get_page_crawler(10, fixed_pub_date_start, fixed_pub_date_end)
+test.get_page_crawler(5, fixed_pub_date_start, fixed_pub_date_end)
