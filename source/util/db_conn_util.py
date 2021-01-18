@@ -47,10 +47,10 @@ class PyMySQLUtil :
             @return (tuple) 쿼리 실행 결과
         '''
         cursor = self.conn.cursor()
-        cursor.execute(excute_query, params)
+        cursor.execute(query, params)
         return cursor.fetchall()
 
-    def close_conn() :
+    def close_conn(self) :
         '''
             객체 사용 후 마지막에 꼭 close 시킬것!
         '''

@@ -6,7 +6,8 @@
 import os
 import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))))
-from datetime import datetime
+import datetime
+import threading
 
 import page_crawler
 from util import db_conn_util
@@ -16,7 +17,7 @@ class CrawlingModule:
         self.db= db_conn_util.PyMySQLUtil()
         self.crawler= page_crawler.PageCrawler()
 
-    def select_category_code(self):
+    def __select_category_code(self):
         '''
             DB에 연결하여 책 카테고리가 c3인 code와 category_seq를 반환하는 함수
             @return (tuple)책 카테고리 코드(category_seq, code)  
@@ -24,9 +25,12 @@ class CrawlingModule:
         sql= "SELECT category_seq, code FROM book_category where char_length(code)=6" 
         return self.db.execute_query(sql)
     
-    def insert_book_info(self, category_seq, books):  
+    def __insert_book_info(self, category_seq, books, t_index):  
         '''
             get_page_crawler에서 반환한 책 정보를 DB에 저장하는 함수
+            @param category_seq: (int) C3 카테고리 seq
+            @param books: (list) 책 정보 객체가 담긴 리스트
+            @return (void)
         '''
         for book in books:  #book의 keys: name, author, publisher, pub_date, price, pages, [tags]
             name= book["name"]
@@ -35,8 +39,10 @@ class CrawlingModule:
             pub_date= book["pub_date"] #datetime
             price= book["price"] 
             pages= book["pages"] 
+            img_url = book["img_url"]
             tags= book["tags"] #list
 
+<<<<<<< HEAD
             sql= "INSERT INTO book_info VALUES(NULL,%s,NULL,%s,%s,%s,%s,%s,%s,sysdate())" #book_info 테이블에 책 정보 삽입
             book_seq= self.db.execute_query(sql, (name, author, publisher, pub_date, category_seq, price, pages))
              
@@ -48,22 +54,71 @@ class CrawlingModule:
                 sql2= "INSERT INTO book_tags VALUES(NULL, %s, %s,sysdate())"      #book_tags 테이블에 태그 삽입
                 self.db.execute_query(sql2, (book_seq[0][0],tag))
         print(category_seq, datetime.now()) #카테고리별 종료시간 출력
-               
+=======
+            sql= "INSERT INTO book_info VALUES(NULL,%s,NULL,%s,%s,%s,%s,%s,%s,%s,sysdate())"    #book_info 테이블에 책 정보 삽입
+            book_seq= self.db_conn_list[t_index].execute_query(sql, (name, author, publisher, pub_date, category_seq, price, pages, img_url))
 
-    def get_page_crawler(self):
+            sql1= "SELECT book_seq from book_info order by book_seq desc limit 1"   #book_info 테이블에 가장 최근에 입력된 row의 book_seq 조회               
+            book_seq= self.db_conn_list[t_index].execute_query(sql1)
+
+            for tag in tags:
+                sql2= "INSERT INTO book_tags VALUES(NULL, %s, %s,sysdate())"        #book_tags 테이블에 태그 삽입
+                self.db_conn_list[t_index].execute_query(sql2, (book_seq[0][0],tag))
+        print(category_seq, datetime.datetime.now()) #카테고리별 종료시간 출력
+>>>>>>> 873c9666c598d2983f340a5525fe58bdbf0df601
+               
+    def get_page_crawler(self, thread_cnt, fixed_pub_date_start, fixed_pub_date_end):
         '''
             DB에서 가져온 c3 카테고리로 page_crawler를 호출하는 함수
+            @param thread_cnt: (int)동시에 진행할 크롤링 쓰레드 개수
+            @param fixed_pub_date_start: (datetime) 크롤링 할 데이터를 필터링하는 기준일
+            @param fixed_pub_date_end: (datetime) 크롤링 할 데이터를 필터링하는 기준일
+            @return (void)
         '''
-        #TODO: 책 목록에서 최신 목록만 가져오는 필터링 필요
-        #TODO: DB에 이미 저장된 책 정보인지 비교할 수 있는 함수 필요
-        category_list= self.select_category_code()
-        for c3 in category_list:  #c3의 구성: (category_seq,code)
-            category_seq= c3[0]
-            code= c3[1]
-            books= self.crawler.get_book_info_from_cat3(code)
-            self.insert_book_info(category_seq, books) 
+        self.__start_date = fixed_pub_date_start
+        self.__end_date = fixed_pub_date_end
+        self.__category_list= self.__select_category_code()
+        self.__next_category_cnt = 0
+        self.lock = threading.Lock()
 
+        self.db_conn_list = []
+        thread_list = []
+        for i in range(thread_cnt) :    #쓰레드 생성
+            self.db_conn_list.append(db_conn_util.PyMySQLUtil())
+            temp_thread = threading.Thread(target=self.__crawl_next, args=(i,))
+            temp_thread.daemon = True
+            temp_thread.start()
+            thread_list.append(temp_thread)
 
+        for t in thread_list:           #쓰레드 종료까지 대기
+            t.join()
+
+        for i in range(thread_cnt) :    #쓰레드 종료 후 db 연결 종료
+            self.db_conn_list[i].close_conn()
+        self.db.close_conn()
+
+    def __crawl_next(self, t_index) :
+        '''
+            쓰레드에서 실행할 재귀함수
+            다음 작업할 카테고리를 조회하여 크롤링한다
+            @return (void)
+        '''
+        self.lock.acquire()
+        if self.__next_category_cnt >= len(self.__category_list) :
+            self.lock.release()
+            return
+        category_seq= self.__category_list[self.__next_category_cnt][0]
+        code = self.__category_list[self.__next_category_cnt][1]
+        self.__next_category_cnt += 1
+        self.lock.release()
+
+        books= self.crawler.get_book_info_from_cat3(code, self.__start_date, self.__end_date)
+        self.__insert_book_info(category_seq, books, t_index)
+
+        self.__crawl_next(t_index)
 
 test= CrawlingModule()
-test.get_page_crawler()
+fixed_pub_date_start = datetime.datetime.strptime('1000.01.01', '%Y.%m.%d')
+fixed_pub_date_end = datetime.datetime.strptime('2021.01.16 23:59:59', '%Y.%m.%d %H:%M:%S')
+#fixed_pub_date_end = datetime.datetime.combine(datetime.date(2021, 1, 16), datetime.time(23, 59, 59))
+test.get_page_crawler(10, fixed_pub_date_start, fixed_pub_date_end)
