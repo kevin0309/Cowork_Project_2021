@@ -1,0 +1,12 @@
+
+.vscode/settings.json
+source/crawling/crawl_book_data/code/__pycache__/http_error.cpython-39.pyc
+source/crawling/crawl_book_data/code/__pycache__/page_crawler.cpython-39.pyc
+source/crawling/crawl_book_data/code/temp.py
+source/crawling/insert_book_category/code/insert_yp_cat1 copy.py
+source/util/__pycache__/db_conn_util.cpython-39.pyc
+study/learning/yh/pytorch_test01.py
+study/learning/yh/pytorch_test02.py
+study/learning/yh/pytorch_test03.py
+study/learning/yh/pytorch_test04.py
+study/test/args_test.py
