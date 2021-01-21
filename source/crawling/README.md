@@ -7,4 +7,5 @@ beautifulsoup4 | 4.9.3
 requests|2.25.1
 
 ## 알려진 이슈
-- 특정 beautifulsoup4 버전(4.9.1)에서 실행이 제대로 되지 않는 오류 발생 [이슈 링크](https://github.com/kevin0309/Cowork_Project_2021/issues/33)
+- (1월 21일) 특정 beautifulsoup4 버전(4.9.1)에서 실행이 제대로 되지 않는 오류 발생 [이슈 링크](https://github.com/kevin0309/Cowork_Project_2021/issues/33)
+- (1월 22일) 영풍문고 대신 교보문고를 사용하기로 결정하여 ypbooks 내의 코드는 현재 사용하지 않음
