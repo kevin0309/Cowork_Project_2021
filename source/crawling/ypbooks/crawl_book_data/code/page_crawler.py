@@ -1,6 +1,6 @@
 #@Author        : Park YuHyeon
 #@Since         : 2021.01.12
-#@Dependency    : requests, BeautifulSoup4
+#@Dependency    : requests, BeautifulSoup4(4.9.3)
 #@Description   : DB에 저장된 book_category.code값으로 영풍문고 사이트에 있는 국내도서 책 정보를 list로 반환하는 코드
 
 import requests
@@ -39,7 +39,6 @@ class PageCrawler :
                 info1 = item.select('#resultlist_cont>.recom>.info01')[0].text.split('|')
                 img_url = item.select('#resultlist_thum>#book_img>img')[0].get('src') \
                     if item.select('#resultlist_thum>#book_img>img')[0].get('src') != '/ypbooks/images/empty70x100.gif' else ''
-                
                 temp_book_info = {               
                     'name': item.select('#resultlist_cont>.recom>dl')[0].select('dt>a')[0].text.strip(),    
                     'author': info1[0].strip(),
@@ -52,7 +51,6 @@ class PageCrawler :
                 }
                 
                 temp_book_info['pub_date']= datetime.strptime(temp_book_info["pub_date_str"],"%Y.%m.%d")   #string->datetime 자료형 변환
-
                 if not self.__validate_book_info(temp_book_info) :  # 책 정보 필터링
                     raise ValueError()
 

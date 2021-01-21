@@ -5,7 +5,7 @@
 
 import os
 import sys
-sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))))
+sys.path.append('./source')
 from datetime import datetime
 import threading
 
@@ -22,8 +22,8 @@ class CrawlingModule:
             DB에 연결하여 책 카테고리가 c3인 code와 category_seq를 반환하는 함수
             @return (tuple)책 카테고리 코드(category_seq, code)  
         '''
-        sql= "SELECT category_seq, code FROM book_category where char_length(code)=6"
-        #sql= "select category_seq, code from book_category where category_seq not in (select distinct category_seq from book_info) and category_seq >= 333;"
+        #sql= "SELECT category_seq, code FROM book_category where char_length(code)=6"
+        sql= "select category_seq, code from book_category where category_seq not in (select distinct category_seq from book_info) and category_seq >= 236;"
         return self.db.execute_query(sql)
     
     def __insert_book_info(self, category_seq, books, t_index):  
@@ -106,7 +106,7 @@ class CrawlingModule:
         self.__next_category_cnt += 1
         self.lock.release()
 
-        try :
+        try : 
             books= page_crawler.PageCrawler().get_book_info_from_cat3(code, self.__start_date, self.__end_date)
             self.__insert_book_info(category_seq, books, t_index)
         except :
@@ -119,6 +119,7 @@ class CrawlingModule:
 
 test= CrawlingModule()
 fixed_pub_date_start = datetime.strptime('1000.01.01', '%Y.%m.%d')
-fixed_pub_date_end = datetime.strptime('2021.01.20 23:59:59', '%Y.%m.%d %H:%M:%S')
+fixed_pub_date_end = datetime.strptime('2021.01.21 23:59:59', '%Y.%m.%d %H:%M:%S')
 #fixed_pub_date_end = datetime.datetime.combine(datetime.date(2021, 1, 16), datetime.time(23, 59, 59))
 test.get_page_crawler(5, fixed_pub_date_start, fixed_pub_date_end)
+
