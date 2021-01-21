@@ -16,9 +16,9 @@ class YpCatInit :
         '''
         self.db = db_conn_util.PyMySQLUtil()
         self.data_path = {
-            "cat1": './source/crawling/insert_book_category/data/yp_cat1.json',
-            "cat2": './source/crawling/insert_book_category/data/yp_cat2.json',
-            "cat3": './source/crawling/insert_book_category/data/yp_cat3.json'
+            "cat1": './source/crawling/ypbooks/insert_book_category/data/yp_cat1.json',
+            "cat2": './source/crawling/ypbooks/insert_book_category/data/yp_cat2.json',
+            "cat3": './source/crawling/ypbooks/insert_book_category/data/yp_cat3.json'
         }
 
     def __insert_cat_1(self) :

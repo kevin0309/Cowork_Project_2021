@@ -29,9 +29,9 @@ class PageCrawler :
         if not (html.status_code == 200 and html.ok) :
             raise http_error.HTTPError('Page unavailable', url)
 
-        soup = BeautifulSoup(html.content, 'html.parser')
+        soup = BeautifulSoup(html.content, 'html.parser')   #soup객체로 변환
         res = []    
-        book_list = soup.select('#resultlist')  #soup객체로 변환
+        book_list = soup.select('#resultlist')  
         #가져와야 할 데이터 - 제목, 저자, 출판사, 출판일, 판매가, 쪽수, 키워드
         #name, author, publisher, pub_date, price, pages, [tags]
         for item in book_list : 
