@@ -23,7 +23,7 @@ class CrawlingModule:
             @return (tuple)책 카테고리 코드(category_seq, code)  
         '''
         #sql= "SELECT category_seq, code FROM book_category where char_length(code)=6"
-        sql= "select category_seq, code from book_category where category_seq not in (select distinct category_seq from book_info) and category_seq >= 333;"
+        sql= "select category_seq, code from book_category where category_seq not in (select distinct category_seq from book_info) and category_seq >= 236;"
         return self.db.execute_query(sql)
     
     def __insert_book_info(self, category_seq, books, t_index):  
@@ -122,3 +122,4 @@ fixed_pub_date_start = datetime.strptime('1000.01.01', '%Y.%m.%d')
 fixed_pub_date_end = datetime.strptime('2021.01.21 23:59:59', '%Y.%m.%d %H:%M:%S')
 #fixed_pub_date_end = datetime.datetime.combine(datetime.date(2021, 1, 16), datetime.time(23, 59, 59))
 test.get_page_crawler(5, fixed_pub_date_start, fixed_pub_date_end)
+
