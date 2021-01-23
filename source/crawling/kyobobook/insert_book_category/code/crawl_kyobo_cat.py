@@ -42,13 +42,15 @@ class KyoboCatCrawler :
                     'code': cat.find('a').attrs['href'].split('linkClass=')[1].split('&')[0]
                 }
                 res.append(cat_dict)
+
+        '''     
         #json 파일로 저장
         with open(file_path, 'w', encoding='utf-8') as make_file:
-            '''
-                ensure_ascii=False 문자 그대로 출력
-                indent="\t"        문자열 들여쓰기에 \t 사용
-            '''
+                #ensure_ascii=False 문자 그대로 출력
+                #indent="\t"        문자열 들여쓰기에 \t 사용
             json.dump(res, make_file, ensure_ascii=False, indent="\t")  
 
-test= KyoboCatCrawler()
-test.get_cat_from_page("0103")
+        '''
+
+
+

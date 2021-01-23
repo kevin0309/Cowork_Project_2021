@@ -7,11 +7,11 @@ import json
 import sys
 sys.path.append('./source')
 from util import db_conn_util
+import crawl_kyobo_cat
 
 class KyoboCatInit :
     def __init__(self) :
         '''
-            self.file_path -> cat1,2,3 json파일 경로 확인!
             @return (void)
         '''
         self.db = db_conn_util.PyMySQLUtil()
@@ -19,7 +19,15 @@ class KyoboCatInit :
             "cat1": './source/crawling/kyobobook/insert_book_category/data/kyobo_cat1.json',
         }
 
-    def __insert_cat_1(self) :
+    def insert_root(self):
+        '''
+            루트 카테고리를 테이블에 삽입하는 메서드
+            @return (void)
+        '''
+        sql= "INSERT INTO book_category VALUES(NULL,1,'국내도서',1,sysdate())"
+        self.db.execute_query(sql)
+
+    def insert_cat_1(self):
         '''
             카테고리 레벨1을 테이블에 삽입하는 메서드
             @return (void)
@@ -30,12 +38,16 @@ class KyoboCatInit :
             for category in cat1:
                 name= category['name']
                 code= category['code']
-                #sql = "INSERT INTO book_category VALUES(NULL,%s,%s,1,sysdate())"
-                #self.db.execute_query(sql, (code, name))
+                sql = "INSERT INTO book_category VALUES(NULL,%s,%s,1,sysdate())"
+                self.db.execute_query(sql, (code, name))
 
-    def __insert_cat_2(self) :
-
-
-
-test= KyoboCatInit()
-test.insert_cat_1()
+    def insert_cat_2(self):
+        '''
+            카테고리 레벨2을 테이블에 삽입하는 메서드
+            @return (void)
+        '''
+        sql= "SELECT category_seq FROM book_category WHERE char_length(code)=2"
+        self.__cat_1_list= self.db.execute_query(sql)
+        
+prog= KyoboCatInit()
+prog.insert_cat_1()

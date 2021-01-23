@@ -3,7 +3,6 @@
 # @Dependency    : 
 # @Description   : 영풍문고 책 정보 크롤링 모듈
 
-import os
 import sys
 sys.path.append('./source')
 from datetime import datetime
@@ -20,7 +19,7 @@ class CrawlingModule:
             @return (tuple)책 카테고리 코드(category_seq, code)  
         '''
         #sql= "SELECT category_seq, code FROM book_category where char_length(code)=6"
-        sql= "select category_seq, code from book_category where category_seq not in (select distinct category_seq from book_info) and category_seq >= 333;"
+        #sql= "select category_seq, code from book_category where category_seq not in (select distinct category_seq from book_info) and category_seq >= 333;"
         return self.db.execute_query(sql)
     
     def __insert_book_info(self, category_seq, books, t_index):  
@@ -54,6 +53,8 @@ class CrawlingModule:
 
         self.db_conn_list[t_index].conn.commit()
         print(category_seq, datetime.now()) #카테고리별 종료시간 출력
+        sql= "INSERT INTO crawl_log(log_seq, c3_seq, count, regdate) VALUES(NULL, %s, %s, sysdate())"
+        self.db_conn_list[t_index].execute_query(sql, (category_seq, len(books)))
                
     def run(self, thread_cnt, fixed_pub_date_start, fixed_pub_date_end):
         '''

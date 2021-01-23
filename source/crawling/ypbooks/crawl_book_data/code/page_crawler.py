@@ -100,7 +100,7 @@ class PageCrawler :
         while True :
             print('search - c3:',c3,' / index (',str(start_cnt),'~',str(start_cnt + show_cnt),')')
             temp_book_list = self.__get_book_info_from_page(c3, str(start_cnt), str(show_cnt))
-            if len(temp_book_list) == 0 :   #범위 내에 책이 없는 경우 break
+            if len(temp_book_list) == 0 :   #범위 내에 책이 없는 경우 crawl_log에 저장
                 break
             else :
                 res += temp_book_list
