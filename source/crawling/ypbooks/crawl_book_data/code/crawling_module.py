@@ -14,9 +14,6 @@ import http_error
 from util import db_conn_util
 
 class CrawlingModule:
-    def __init__(self):
-        self.db= db_conn_util.PyMySQLUtil()
-
     def __select_category_code(self):
         '''
             DB에 연결하여 책 카테고리가 c3인 code와 category_seq를 반환하는 함수
@@ -33,7 +30,7 @@ class CrawlingModule:
             @param books: (list) 책 정보 객체가 담긴 리스트
             @return (void)
         '''
-        for book in books:  #book의 keys: name, author, publisher, pub_date, price, pages, [tags]
+        for book in books:  #book의 keys: bookcd, name, author, publisher, pub_date, price, pages, [tags]
             bookcd = book["bookcd"]
             name= book["name"]
             author= book["author"]
@@ -56,7 +53,7 @@ class CrawlingModule:
 
         print(category_seq, datetime.now()) #카테고리별 종료시간 출력
                
-    def get_page_crawler(self, thread_cnt, fixed_pub_date_start, fixed_pub_date_end):
+    def run(self, thread_cnt, fixed_pub_date_start, fixed_pub_date_end):
         '''
             DB에서 가져온 c3 카테고리로 page_crawler를 호출하는 함수
             @param thread_cnt: (int)동시에 진행할 크롤링 쓰레드 개수
@@ -64,32 +61,42 @@ class CrawlingModule:
             @param fixed_pub_date_end: (datetime) 크롤링 할 데이터를 필터링하는 기준일
             @return (void)
         '''
-        self.__start_date = fixed_pub_date_start
-        self.__end_date = fixed_pub_date_end
-        self.__category_list= self.__select_category_code()
-        self.__next_category_cnt = 0
-        self.__error_category_list = []
-        self.lock = threading.Lock()
+        try :
+            self.db= db_conn_util.PyMySQLUtil()
+            self.is_end = False
+            self.__start_date = fixed_pub_date_start
+            self.__end_date = fixed_pub_date_end
+            self.__category_list= self.__select_category_code()
+            self.__next_category_cnt = 0
+            self.error_category_list = []
+            self.lock = threading.Lock()
 
-        self.db_conn_list = []
-        thread_list = []
-        for i in range(thread_cnt) :    #쓰레드 생성
-            self.db_conn_list.append(db_conn_util.PyMySQLUtil())
-            temp_thread = threading.Thread(target=self.__crawl_next, args=(i,))
-            temp_thread.daemon = True
-            temp_thread.start()
-            thread_list.append(temp_thread)
+            self.db_conn_list = []
+            for i in range(thread_cnt) :    #쓰레드에서 사용할 DB 커넥션 생성
+                self.db_conn_list.append(db_conn_util.PyMySQLUtil())
 
-        for t in thread_list:           #쓰레드 종료까지 대기
-            t.join()
+            thread_list = []
+            for i in range(thread_cnt) :    #쓰레드 생성
+                temp_thread = threading.Thread(target=self.__crawl_next, args=(i,))
+                temp_thread.daemon = True
+                temp_thread.start()
+                thread_list.append(temp_thread)
 
-        for i in range(thread_cnt) :    #쓰레드 종료 후 db 연결 종료
-            self.db_conn_list[i].close_conn()
-        self.db.close_conn()
+            for t in thread_list:           #쓰레드 종료까지 대기
+                t.join()
 
-        print('페이지 오류로 실행되지 못한 카테고리 리스트')
-        print(self.__error_category_list)
-        print(len(self.__error_category_list))
+            for i in range(thread_cnt) :    #쓰레드 종료 후 db 연결 종료
+                self.db_conn_list[i].close_conn()
+            self.db.close_conn()
+
+            print('페이지 오류로 실행되지 못한 카테고리 리스트')
+            print(self.error_category_list)
+            print(len(self.error_category_list))
+            self.is_end = True
+        finally :
+            for i in range(thread_cnt) :    #쓰레드 종료 후 db 연결 종료
+                self.db_conn_list[i].close_conn()
+            self.db.close_conn()
 
     def __crawl_next(self, t_index) :
         '''
@@ -113,7 +120,7 @@ class CrawlingModule:
         except :
             print('page error occured -', code, category_seq)
             self.lock.acquire()
-            self.__error_category_list.append([category_seq, code])
+            self.error_category_list.append([category_seq, code])
             self.lock.release()
 
         self.__crawl_next(t_index)
@@ -122,4 +129,15 @@ test= CrawlingModule()
 fixed_pub_date_start = datetime.strptime('1000.01.01', '%Y.%m.%d')
 fixed_pub_date_end = datetime.strptime('2021.01.21 23:59:59', '%Y.%m.%d %H:%M:%S')
 #fixed_pub_date_end = datetime.datetime.combine(datetime.date(2021, 1, 16), datetime.time(23, 59, 59))
-test.get_page_crawler(5, fixed_pub_date_start, fixed_pub_date_end)
+
+# 도중에 중단 시 오류난 카테고리 리스트 출력하는 기능
+def bye(obj):
+    if not obj.is_end:
+        print('작업 도중 중단!')
+        print('페이지 오류로 실행되지 못한 카테고리 리스트')
+        print(obj.error_category_list)
+        print(len(obj.error_category_list))
+import atexit
+atexit.register(bye, test)
+
+test.run(5, fixed_pub_date_start, fixed_pub_date_end)
