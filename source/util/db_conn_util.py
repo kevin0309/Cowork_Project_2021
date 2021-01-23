@@ -11,8 +11,8 @@ from datetime import datetime as dt
 class PyMySQLUtil :
     __USER = 'root'
     __PASSWD = 'qwer1234'
-    #__HOST = 'cowork-rds.c9acto1zciwv.ap-northeast-2.rds.amazonaws.com' #cowork-rds
-    __HOST = 'test-rds.c9acto1zciwv.ap-northeast-2.rds.amazonaws.com' #test-rds
+    __HOST = 'cowork-rds.c9acto1zciwv.ap-northeast-2.rds.amazonaws.com' #cowork-rds
+    #__HOST = 'test-rds.c9acto1zciwv.ap-northeast-2.rds.amazonaws.com' #test-rds
     __DB = 'Cowork'
     __PORT = 3306
     __CHARSET = 'utf8'

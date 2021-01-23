@@ -3,6 +3,7 @@
 # @Dependency    : 
 # @Description   : 영풍문고 책 정보 크롤링 모듈
 
+import os
 import sys
 sys.path.append('./source')
 from datetime import datetime
@@ -22,7 +23,7 @@ class CrawlingModule:
             @return (tuple)책 카테고리 코드(category_seq, code)  
         '''
         #sql= "SELECT category_seq, code FROM book_category where char_length(code)=6"
-        #sql= "select category_seq, code from book_category where category_seq not in (select distinct category_seq from book_info) and category_seq >= 333;"
+        sql= "select category_seq, code from book_category where category_seq not in (select distinct category_seq from book_info) and category_seq >= 236;"
         return self.db.execute_query(sql)
     
     def __insert_book_info(self, category_seq, books, t_index):  
@@ -33,7 +34,6 @@ class CrawlingModule:
             @return (void)
         '''
         for book in books:  #book의 keys: name, author, publisher, pub_date, price, pages, [tags]
-            bookcd = book["bookcd"]
             name= book["name"]
             author= book["author"]
             publisher= book["publisher"]
@@ -43,19 +43,17 @@ class CrawlingModule:
             img_url = book["img_url"]
             tags= book["tags"] #list
 
-            sql= "INSERT INTO book_info VALUES(NULL,%s,%s,NULL,%s,%s,%s,%s,%s,%s,%s,sysdate())"    #book_info 테이블에 책 정보 삽입
-            book_seq= self.db_conn_list[t_index].execute_query(sql, (bookcd, name, author, publisher, pub_date, category_seq, price, pages, img_url))
+            sql= "INSERT INTO book_info VALUES(NULL,%s,NULL,%s,%s,%s,%s,%s,%s,%s,sysdate())"    #book_info 테이블에 책 정보 삽입
+            book_seq= self.db_conn_list[t_index].execute_query(sql, (name, author, publisher, pub_date, category_seq, price, pages, img_url))
 
-            sql1= "SELECT book_seq from book_info where bookcd = %s order by book_seq desc limit 1"   #book_info 테이블에 가장 최근에 입력된 row의 book_seq 조회               
-            book_seq= self.db_conn_list[t_index].execute_query(sql1, (bookcd))
+            sql1= "SELECT book_seq from book_info order by book_seq desc limit 1"   #book_info 테이블에 가장 최근에 입력된 row의 book_seq 조회               
+            book_seq= self.db_conn_list[t_index].execute_query(sql1)
 
             for tag in tags:
                 sql2= "INSERT INTO book_tags VALUES(NULL, %s, %s,sysdate())"        #book_tags 테이블에 태그 삽입
                 self.db_conn_list[t_index].execute_query(sql2, (book_seq[0][0],tag))
 
         print(category_seq, datetime.now()) #카테고리별 종료시간 출력
-        sql= "INSERT INTO crawl_log(log_seq, c3_seq, count, regdate) VALUES(NULL, %s, %s, sysdate())"
-        self.db_conn_list[t_index].execute_query(sql, (category_seq, len(books)))
                
     def get_page_crawler(self, thread_cnt, fixed_pub_date_start, fixed_pub_date_end):
         '''
@@ -124,3 +122,4 @@ fixed_pub_date_start = datetime.strptime('1000.01.01', '%Y.%m.%d')
 fixed_pub_date_end = datetime.strptime('2021.01.21 23:59:59', '%Y.%m.%d %H:%M:%S')
 #fixed_pub_date_end = datetime.datetime.combine(datetime.date(2021, 1, 16), datetime.time(23, 59, 59))
 test.get_page_crawler(5, fixed_pub_date_start, fixed_pub_date_end)
+

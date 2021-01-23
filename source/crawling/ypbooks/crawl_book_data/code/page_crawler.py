@@ -40,6 +40,7 @@ class PageCrawler :
                 img_url = item.select('#resultlist_thum>#book_img>img')[0].get('src') \
                     if item.select('#resultlist_thum>#book_img>img')[0].get('src') != '/ypbooks/images/empty70x100.gif' else ''
                 temp_book_info = {               
+                    'bookcd': item.select('#resultlist_thum>.chk>input')[0].get('value').strip(),
                     'name': item.select('#resultlist_cont>.recom>dl')[0].select('dt>a')[0].text.strip(),    
                     'author': info1[0].strip(),
                     'publisher': info1[1].strip(),
