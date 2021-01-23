@@ -47,7 +47,7 @@ class CrawlingModule:
             sql= "INSERT INTO book_info VALUES(NULL,%s,%s,NULL,%s,%s,%s,%s,%s,%s,%s,sysdate())"    #book_info 테이블에 책 정보 삽입
             book_seq= self.db_conn_list[t_index].execute_query(sql, (bookcd, name, author, publisher, pub_date, category_seq, price, pages, img_url))
 
-            sql1= "SELECT book_seq from book_info where bookcd = %s order by book_seq desc limit 1"   #book_info 테이블에 가장 최근에 입력된 row의 book_seq 조회               
+            sql1= "SELECT LAST_INSERT_ID()"   #book_info 테이블에 가장 최근에 입력된 row의 book_seq 조회               
             book_seq= self.db_conn_list[t_index].execute_query(sql1, (bookcd))
 
             for tag in tags:
