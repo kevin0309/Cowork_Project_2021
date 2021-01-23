@@ -52,6 +52,7 @@ class CrawlingModule:
                 sql2= "INSERT INTO book_tags VALUES(NULL, %s, %s,sysdate())"        #book_tags 테이블에 태그 삽입
                 self.db_conn_list[t_index].execute_query(sql2, (book_seq[0][0],tag))
 
+        self.db_conn_list[t_index].conn.commit()
         print(category_seq, datetime.now()) #카테고리별 종료시간 출력
                
     def run(self, thread_cnt, fixed_pub_date_start, fixed_pub_date_end):
@@ -74,7 +75,9 @@ class CrawlingModule:
 
             self.db_conn_list = []
             for i in range(thread_cnt) :    #쓰레드에서 사용할 DB 커넥션 생성
-                self.db_conn_list.append(db_conn_util.PyMySQLUtil())
+                temp_db = db_conn_util.PyMySQLUtil(False)
+                temp_db.get_connection(False)
+                self.db_conn_list.append(temp_db)
 
             thread_list = []
             for i in range(thread_cnt) :    #쓰레드 생성
