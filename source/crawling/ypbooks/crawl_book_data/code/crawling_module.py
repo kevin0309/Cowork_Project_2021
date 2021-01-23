@@ -34,6 +34,7 @@ class CrawlingModule:
             @return (void)
         '''
         for book in books:  #book의 keys: name, author, publisher, pub_date, price, pages, [tags]
+            bookcd = book["bookcd"]
             name= book["name"]
             author= book["author"]
             publisher= book["publisher"]
@@ -43,11 +44,11 @@ class CrawlingModule:
             img_url = book["img_url"]
             tags= book["tags"] #list
 
-            sql= "INSERT INTO book_info VALUES(NULL,%s,NULL,%s,%s,%s,%s,%s,%s,%s,sysdate())"    #book_info 테이블에 책 정보 삽입
-            book_seq= self.db_conn_list[t_index].execute_query(sql, (name, author, publisher, pub_date, category_seq, price, pages, img_url))
+            sql= "INSERT INTO book_info VALUES(NULL,%s,%s,NULL,%s,%s,%s,%s,%s,%s,%s,sysdate())"    #book_info 테이블에 책 정보 삽입
+            book_seq= self.db_conn_list[t_index].execute_query(sql, (bookcd, name, author, publisher, pub_date, category_seq, price, pages, img_url))
 
-            sql1= "SELECT book_seq from book_info order by book_seq desc limit 1"   #book_info 테이블에 가장 최근에 입력된 row의 book_seq 조회               
-            book_seq= self.db_conn_list[t_index].execute_query(sql1)
+            sql1= "SELECT book_seq from book_info where bookcd = %s order by book_seq desc limit 1"   #book_info 테이블에 가장 최근에 입력된 row의 book_seq 조회               
+            book_seq= self.db_conn_list[t_index].execute_query(sql1, (bookcd))
 
             for tag in tags:
                 sql2= "INSERT INTO book_tags VALUES(NULL, %s, %s,sysdate())"        #book_tags 테이블에 태그 삽입
