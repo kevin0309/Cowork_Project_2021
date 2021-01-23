@@ -95,9 +95,12 @@ class CrawlingModule:
             print(len(self.error_category_list))
             self.is_end = True
         finally :
-            for i in range(thread_cnt) :    #쓰레드 종료 후 db 연결 종료
-                self.db_conn_list[i].close_conn()
-            self.db.close_conn()
+            try :
+                for i in range(thread_cnt) :    #쓰레드 종료 후 db 연결 종료
+                    self.db_conn_list[i].close_conn()
+                self.db.close_conn()
+            except :    #이미 커넥션 종료된 경우 발생하는 에러 무시
+                pass
 
     def __crawl_next(self, t_index) :
         '''
