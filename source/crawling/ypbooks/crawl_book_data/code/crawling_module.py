@@ -28,6 +28,7 @@ class CrawlingModule:
             get_page_crawler에서 반환한 책 정보를 DB에 저장하는 함수
             @param category_seq: (int) C3 카테고리 seq
             @param books: (list) 책 정보 객체가 담긴 리스트
+            @param t_index: (int) 몇 번째 쓰레드인지 인덱스 번호
             @return (void)
         '''
         for book in books:  #book의 keys: bookcd, name, author, publisher, pub_date, price, pages, [tags]
@@ -102,6 +103,7 @@ class CrawlingModule:
         '''
             쓰레드에서 실행할 재귀함수
             다음 작업할 카테고리를 조회하여 크롤링한다
+            @param t_index: (int) 몇 번째 쓰레드인지 인덱스 번호
             @return (void)
         '''
         self.lock.acquire()
