@@ -20,7 +20,7 @@ class CrawlingModule:
         '''
         #sql= "SELECT category_seq, code FROM book_category where char_length(code)=6"
         #sql= "select category_seq, code from book_category where category_seq not in (select distinct category_seq from book_info) and category_seq >= 333;"
-        sql= "SELECT category_seq, code FROM book_category WHERE category_seq not in (SELECT category_seq FROM crawl_log)"
+        sql= "SELECT category_seq, code FROM book_category WHERE category_seq not in (SELECT c3_seq FROM crawl_log) and length(code) = 6;"
         return self.db.execute_query(sql)
     
     def __insert_book_info(self, category_seq, books, t_index):  
