@@ -52,10 +52,10 @@ class CrawlingModule:
                 sql2= "INSERT INTO book_tags VALUES(NULL, %s, %s,sysdate())"        #book_tags 테이블에 태그 삽입
                 self.db_conn_list[t_index].execute_query(sql2, (book_seq[0][0],tag))
 
-        self.db_conn_list[t_index].conn.commit()
         print(category_seq, datetime.now()) #카테고리별 종료시간 출력
-        sql= "INSERT INTO crawl_log(log_seq, c3_seq, count, regdate) VALUES(NULL, %s, %s, sysdate())"
+        sql= "INSERT INTO crawl_log VALUES(NULL, %s, %s, sysdate())"
         self.db_conn_list[t_index].execute_query(sql, (category_seq, len(books)))
+        self.db_conn_list[t_index].conn.commit()
                
     def run(self, thread_cnt, fixed_pub_date_start, fixed_pub_date_end):
         '''
@@ -129,6 +129,7 @@ class CrawlingModule:
             self.__insert_book_info(category_seq, books, t_index)
         except :
             print('page error occured -', code, category_seq)
+            self.db_conn_list[t_index].conn.rollback()
             self.lock.acquire()
             self.error_category_list.append([category_seq, code])
             self.lock.release()
