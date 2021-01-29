@@ -11,8 +11,8 @@ from datetime import datetime as dt
 class PyMySQLUtil :
     __USER = 'root'
     __PASSWD = 'qwer1234'
-    #__HOST = 'cowork-rds.c9acto1zciwv.ap-northeast-2.rds.amazonaws.com' #cowork-rds
-    __HOST = 'test-rds.c9acto1zciwv.ap-northeast-2.rds.amazonaws.com' #test-rds
+    __HOST = 'cowork-rds.c9acto1zciwv.ap-northeast-2.rds.amazonaws.com' #cowork-rds
+    #__HOST = 'test-rds.c9acto1zciwv.ap-northeast-2.rds.amazonaws.com' #test-rds
     __DB = 'Cowork'
     __PORT = 3306
     __CHARSET = 'utf8'
@@ -50,11 +50,9 @@ class PyMySQLUtil :
         cursor.execute(query, params)
         return cursor.fetchall()
 
-    def close_conn() :
+    def close_conn(self) :
         '''
             객체 사용 후 마지막에 꼭 close 시킬것!
         '''
         self.conn.close()
-
-    # TODO: PreparedStatement 기능 구현?
-
+    
