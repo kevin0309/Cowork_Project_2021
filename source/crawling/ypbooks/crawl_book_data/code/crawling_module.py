@@ -23,7 +23,7 @@ class CrawlingModule:
         sql= "SELECT category_seq, code FROM book_category WHERE category_seq not in (SELECT c3_seq FROM crawl_log) and length(code) = 6;"
         return self.db.execute_query(sql)
     
-    def __insert_book_info(self, category_seq, books, t_index):  
+    def __insert_book_info(self, category_seq, code, books, t_index):  
         '''
             get_page_crawler에서 반환한 책 정보를 DB에 저장하는 함수
             @param category_seq: (int) C3 카테고리 seq
@@ -31,6 +31,9 @@ class CrawlingModule:
             @param t_index: (int) 몇 번째 쓰레드인지 인덱스 번호
             @return (void)
         '''
+        if len(books) == 0:
+            raise ValueError();
+
         for book in books:  #book의 keys: bookcd, name, author, publisher, pub_date, price, pages, [tags]
             bookcd = book["bookcd"]
             name= book["name"]
@@ -52,7 +55,7 @@ class CrawlingModule:
                 sql2= "INSERT INTO book_tags VALUES(NULL, %s, %s,sysdate())"        #book_tags 테이블에 태그 삽입
                 self.db_conn_list[t_index].execute_query(sql2, (book_seq[0][0],tag))
 
-        print(category_seq, datetime.now()) #카테고리별 종료시간 출력
+        print(category_seq, code, datetime.now()) #카테고리별 종료시간 출력
         sql= "INSERT INTO crawl_log VALUES(NULL, %s, %s, sysdate())"
         self.db_conn_list[t_index].execute_query(sql, (category_seq, len(books)))
         self.db_conn_list[t_index].conn.commit()
@@ -67,12 +70,10 @@ class CrawlingModule:
         '''
         try :
             self.db= db_conn_util.PyMySQLUtil()
-            self.is_end = False
             self.__start_date = fixed_pub_date_start
             self.__end_date = fixed_pub_date_end
-            self.__category_list= self.__select_category_code()
+            self.__category_list = self.__select_category_code()
             self.__next_category_cnt = 0
-            self.error_category_list = []
             self.lock = threading.Lock()
 
             self.db_conn_list = []
@@ -94,11 +95,6 @@ class CrawlingModule:
             for i in range(thread_cnt) :    #쓰레드 종료 후 db 연결 종료
                 self.db_conn_list[i].close_conn()
             self.db.close_conn()
-
-            print('페이지 오류로 실행되지 못한 카테고리 리스트')
-            print(self.error_category_list)
-            print(len(self.error_category_list))
-            self.is_end = True
         finally :
             try :
                 for i in range(thread_cnt) :    #쓰레드 종료 후 db 연결 종료
@@ -126,13 +122,10 @@ class CrawlingModule:
 
         try : 
             books= page_crawler.PageCrawler().get_book_info_from_cat3(code, self.__start_date, self.__end_date)
-            self.__insert_book_info(category_seq, books, t_index)
+            self.__insert_book_info(category_seq, code, books, t_index)
         except :
             print('page error occured -', code, category_seq)
             self.db_conn_list[t_index].conn.rollback()
-            self.lock.acquire()
-            self.error_category_list.append([category_seq, code])
-            self.lock.release()
 
         self.__crawl_next(t_index)
 
@@ -140,15 +133,4 @@ test= CrawlingModule()
 fixed_pub_date_start = datetime.strptime('1000.01.01', '%Y.%m.%d')
 fixed_pub_date_end = datetime.strptime('2021.01.21 23:59:59', '%Y.%m.%d %H:%M:%S')
 #fixed_pub_date_end = datetime.datetime.combine(datetime.date(2021, 1, 16), datetime.time(23, 59, 59))
-
-# 도중에 중단 시 오류난 카테고리 리스트 출력하는 기능
-def bye(obj):
-    if not obj.is_end:
-        print('작업 도중 중단!')
-        print('페이지 오류로 실행되지 못한 카테고리 리스트')
-        print(obj.error_category_list)
-        print(len(obj.error_category_list))
-import atexit
-atexit.register(bye, test)
-
 test.run(5, fixed_pub_date_start, fixed_pub_date_end)
